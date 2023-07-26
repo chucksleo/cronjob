@@ -41,19 +41,19 @@ module "kubernetes_cronjob" {
 
 ## Inputs
 
-| Name                       | Type       | Required  | Description                                     | Default    |
-|----------------------------|------------|-----------|-------------------------------------------------|------------|
-| namespace                  | string     |    yes    | The namespace where the CronJob will be deployed|  "default" |
-| cronjob_name               | string     |           | The name of the CronJob	                        |            |
-| concurrency_policy         | string     |           | The container port to expose                    |            |
-| failed_jobs_history_limit	 | number     |           |   The number of failed job history to retain	  |  "Allow"   |
-| schedule                   | string     |           | The schedule for the CronJob	                  |            |
-| timezone                   | string     |           | The timezone for the CronJob	                  |  "UTC"     |
-| starting_deadline_seconds  | number     |           | The deadline in seconds for starting the job	  |  30        |
-| backoff_limit              | number     |           | The number of retries before giving up	        |  2         |
-| ttl_seconds_after_finished | number     |           | Time to live in seconds after the job completes |  3000      |
-| container_image            | string     |           | The name of the service                         |            |
-| labels                     | map(string)|    yes    | Standard metadata of the resource to be annoted |     {}     |
+| Name                       | Type       | Required| Description                                     | Default    |
+|----------------------------|------------|---------|-------------------------------------------------|------------|
+| namespace                  | string     |   No    | The namespace where the CronJob will be deployed|  "default" |
+| cronjob_name               | string     |   Yes   | The name of the CronJob	                      |            |
+| concurrency_policy         | string     |   No    | The concurrency policy for the CronJob	      |  "Allow"   |
+| failed_jobs_history_limit	 | number     |   No    | The number of failed job history to retain	  |  10        |
+| schedule                   | string     |   Yes   | The schedule for the CronJob	                  |            |
+| timezone                   | string     |   No    | The timezone for the CronJob	                  |  "UTC"     |
+| starting_deadline_seconds  | number     |   No    | The deadline in seconds for starting the job	  |  30        |
+| backoff_limit              | number     |   No    | The number of retries before giving up	      |  2         |
+| ttl_seconds_after_finished | number     |   No    | Time to live in seconds after the job completes |  3000      |
+| container_image            | string     |   Yes   | The name of the service                         |            |
+| labels                     | map(string)|   No    | Standard metadata of the resource to be annoted |     {}     |
 
 ## Outputs
 
